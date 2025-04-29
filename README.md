@@ -34,6 +34,7 @@ Introduced at ICEGOV 2025, SODREPO brings spatial context and metadata richness 
 ## ✅ Planned Projects
 
 - **SODA** – Saxony Open Data Assembly *(planned)*
+- **SODPUB** – Standardized Open Data Publication & Utilization Blueprint *(planned)*
 
 ---
 
