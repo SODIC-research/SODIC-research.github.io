@@ -2,198 +2,439 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>SODIC – Semantic & Open Data Innovation Chemnitz</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SODIC - Semantic &amp; Open Data Innovation Chemnitz</title>
+  <meta name="description" content="SODIC is a research group at TU Chemnitz focused on advancing open and semantic data infrastructures, interoperability, spatially linked data and public data ecosystems.">
+  <meta name="author" content="SODIC Research Group, TU Chemnitz">
+  <meta name="keywords" content="SODIC, TU Chemnitz, Semantic Web, Open Data, Open Government Data, Linked Data, DCAT, FAIR Data, Data Management">
+  <meta property="og:title" content="SODIC - Semantic &amp; Open Data Innovation Chemnitz">
+  <meta property="og:description" content="Research group at TU Chemnitz advancing open and semantic data infrastructures.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sodic-research.github.io/">
+  <meta name="theme-color" content="#003366">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ResearchOrganization",
+    "name": "SODIC - Semantic & Open Data Innovation Chemnitz",
+    "url": "https://sodic-research.github.io/",
+    "parentOrganization": {
+      "@type": "CollegeOrUniversity",
+      "name": "TU Chemnitz",
+      "url": "https://www.tu-chemnitz.de/"
+    },
+    "department": "Faculty of Computer Science, Professorship Data Management",
+    "sameAs": [
+      "https://github.com/SODIC-research",
+      "https://www.tu-chemnitz.de/informatik/dm/forschung/sodic.php"
+    ],
+    "researchProject": [
+      "SODREPO",
+      "SODINA",
+      "SODMET",
+      "SODBond",
+      "SODPEST",
+      "SODDUT"
+    ]
+  }
+  </script>
   <style>
     :root {
-      --beige: #f5f1e6;
-      --marine: #003366;
-      --marine-light: #005599;
+      --background: #f5f1e6;
+      --surface: #ffffff;
+      --surface-soft: #fbf8ef;
+      --primary: #003366;
+      --primary-light: #005599;
+      --primary-dark: #001f3f;
+      --text: #13293d;
+      --muted: #5d6d7e;
+      --border: #d8d0bd;
+      --shadow: 0 16px 36px rgba(0, 31, 63, 0.12);
+      --radius: 18px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: var(--beige);
-      color: var(--marine);
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--background);
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--primary-light);
+      text-decoration: none;
+      font-weight: 650;
+    }
+
+    a:hover,
+    a:focus {
+      text-decoration: underline;
     }
 
     header {
-      background-color: var(--marine);
-      color: var(--beige);
-      padding: 2rem;
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: var(--background);
+      padding: 4rem 1.5rem 3.25rem;
       text-align: center;
     }
 
     header h1 {
-      margin: 0;
-      font-size: 2.5rem;
+      margin: 0 auto 1rem;
+      max-width: 1100px;
+      font-size: clamp(2rem, 4vw, 4rem);
+      line-height: 1.12;
+      letter-spacing: -0.04em;
+    }
+
+    header p {
+      max-width: 920px;
+      margin: 0 auto;
+      font-size: clamp(1.05rem, 1.7vw, 1.35rem);
+      color: rgba(245, 241, 230, 0.92);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 241, 230, 0.96);
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(10px);
+    }
+
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0.85rem 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .nav-inner a {
+      color: var(--primary);
+      font-size: 0.95rem;
+      white-space: nowrap;
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
     }
 
     section {
-      padding: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
+      margin-bottom: 3.25rem;
     }
 
     h2 {
-      color: var(--marine-light);
-      border-bottom: 2px solid var(--marine-light);
-      padding-bottom: 0.4rem;
+      color: var(--primary);
+      font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+      margin: 0 0 1.25rem;
+      padding-bottom: 0.55rem;
+      border-bottom: 3px solid var(--primary-light);
     }
 
-    .flex-container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-top: 1rem;
+    h3 {
+      color: var(--primary-dark);
+      margin: 0 0 0.75rem;
+      line-height: 1.3;
+      font-size: 1.18rem;
+    }
+
+    p {
+      margin: 0 0 1rem;
+    }
+
+    code {
+      background: #eef2f6;
+      color: var(--primary-dark);
+      padding: 0.08rem 0.32rem;
+      border-radius: 6px;
+      font-size: 0.95em;
+    }
+
+    .lead {
+      max-width: 980px;
+      font-size: 1.12rem;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .grid-three {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.25rem;
     }
 
     .card {
-      background: white;
-      border: 1px solid #ccc;
-      border-left: 6px solid var(--marine);
-      border-radius: 4px;
-      padding: 1rem;
-      flex: 1 1 45%;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      height: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--primary);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
     }
 
-    .footer {
-      background-color: var(--marine);
-      color: var(--beige);
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .meta-box {
+      background: var(--surface-soft);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: 0 10px 24px rgba(0, 31, 63, 0.08);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0 0;
+    }
+
+    .tag-list li {
+      background: var(--surface);
+      color: var(--primary);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.55rem 0.85rem;
+      font-weight: 650;
+      box-shadow: 0 6px 14px rgba(0, 31, 63, 0.07);
+    }
+
+    .publication-list,
+    .project-list {
+      margin: 0;
+      padding-left: 1.25rem;
+    }
+
+    .publication-list li,
+    .project-list li {
+      margin-bottom: 0.7rem;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    footer {
+      background: var(--primary-dark);
+      color: var(--background);
       text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-      margin-top: 2rem;
+      padding: 1.5rem;
+      font-size: 0.95rem;
     }
 
-    a {
-      color: var(--marine-light);
-      text-decoration: none;
+    footer p {
+      margin: 0.25rem 0;
     }
 
-    a:hover {
-      text-decoration: underline;
-    }
+    @media (max-width: 850px) {
+      header {
+        padding: 3rem 1rem 2.75rem;
+      }
 
-    ul {
-      padding-left: 1.2rem;
+      main {
+        padding: 2rem 1rem;
+      }
+
+      .grid,
+      .grid-three,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .nav-inner {
+        justify-content: flex-start;
+        overflow-x: auto;
+      }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>SODIC – Semantic & Open Data Innovation Chemnitz</h1>
-    <p>Fostering transparency, interoperability, and innovation in the Open Data ecosystem</p>
+    <h1>🌍 SODIC - Semantic &amp; Open Data Innovation Chemnitz</h1>
+    <p>Advancing open, semantic, interoperable and spatially linked data infrastructures for public administration, science and civil society.</p>
   </header>
 
-  <section>
-    <h2>Motivation & Vision</h2>
-    <p>
-      In a world increasingly driven by data, the accessibility, semantics, and interoperability of Open Data are more important than ever.
-      SODIC stands at the intersection of technology, governance, and transparency – pushing for intelligent Open Data infrastructures
-      that empower society, science, and administration.
-    </p>
-  </section>
+  <nav aria-label="Main navigation">
+    <div class="nav-inner">
+      <a href="#vision">Vision</a>
+      <a href="#team">Team</a>
+      <a href="#research">Current Research</a>
+      <a href="#planned">Planned Projects</a>
+      <a href="#publications">Publications</a>
+      <a href="#topics">Research Topics</a>
+      <a href="#affiliation">Affiliation</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
 
-  <section>
-    <h2>Team</h2>
-    <div class="flex-container">
-      <div class="card">
-        <h3>Florian Hahn <a href="https://orcid.org/0009-0008-1126-9319">ORCID</a></h3>
-        <p>Researcher in Semantic Open Data, Web Technologies & Public Data Infrastructures</p>
+  <main>
+    <section id="vision">
+      <h2>🔍 Motivation &amp; Vision</h2>
+      <p class="lead">
+        <strong>SODIC</strong> is a research group at TU Chemnitz focused on advancing open and semantic data infrastructures. We explore how structured, interoperable and spatially linked data can foster innovation, transparency and collaboration across public administration, science and civil society.
+      </p>
+      <p>
+        In a world increasingly driven by data, the accessibility, semantics and interoperability of Open Data are more important than ever. SODIC stands at the intersection of technology, governance and transparency, pushing for intelligent Open Data infrastructures that empower society, science and administration.
+      </p>
+    </section>
+
+    <section id="team">
+      <h2>👨‍🔬 Team</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Florian Hahn</h3>
+          <p>Researcher in Semantic Open Data, Web Technologies &amp; Public Data Infrastructures</p>
+          <p><a href="https://orcid.org/0009-0008-1126-9319" target="_blank" rel="noopener noreferrer">ORCID: 0009-0008-1126-9319</a></p>
+        </article>
+        <article class="card">
+          <h3>Prof. Dr. Michael Martin</h3>
+          <p>Professor of Data Management and expert in Linked Data, semantics and data architectures</p>
+          <p><a href="https://orcid.org/0000-0003-0762-8688" target="_blank" rel="noopener noreferrer">ORCID: 0000-0003-0762-8688</a></p>
+        </article>
       </div>
-      <div class="card">
-        <h3>Prof. Dr. Michael Martin <a href="https://orcid.org/0000-0003-0762-8688">ORCID</a></h3>
-        <p>Professor of Data Management – Expert in Linked Data, Semantics, and Data Architectures</p>
+    </section>
+
+    <section id="research">
+      <h2>🧪 Current Research</h2>
+      <div class="grid">
+        <article class="card">
+          <h3><a href="https://rambarz.github.io" target="_blank" rel="noopener noreferrer">SODREPO - Spatial Open Data Regions and Portals</a></h3>
+          <p>An interactive map-based tool linking Open Data portals to administrative boundaries across Europe.</p>
+        </article>
+
+        <article class="card">
+          <h3>SODINA - SPARQL for Open Data Introspection, Navigation and Access</h3>
+          <p>SODINA is a lightweight introspection layer for SPARQL endpoints, designed to support semantic data exploration by dynamically exposing available classes, properties, datatypes and value samples. Inspired by GraphQL's <code>__schema</code> functionality, SODINA lowers the entry barrier for users unfamiliar with the internal vocabulary of RDF-based Open Data portals.</p>
+        </article>
+
+        <article class="card">
+          <h3>SODMET - Semantic Open Data Metadata Extraction Tools</h3>
+          <p>This Node.js-based research tool analyzes the metadata quality of German municipal Open Data portals. It evaluates the <strong>regional assignability</strong> of datasets depending on whether standardized metadata models such as <strong>DCAT-AP</strong> and <strong>GeoDCAT-AP</strong> are used, for example via CKAN, best practice as a SPARQL endpoint or non-standard formats such as ArcGIS JSON.</p>
+          <p>Former name: SODRAM, Specific Open Dataset Regional Analysis Metadata.</p>
+        </article>
+
+        <article class="card">
+          <h3>SODBond - Semantic-Orchestration Derivation Bond between BPMN and RDF</h3>
+          <p>SODBond is a toolkit that bridges Camunda BPMN 2.0 process definitions and runtime instances with RDF knowledge graphs via an ontology-driven approach. It retrieves BPMN models and instance data from Camunda through the REST API and transforms them into semantically rich RDF/OWL representations based on a BPMN-based ontology.</p>
+        </article>
+
+        <article class="card">
+          <h3>SODPEST - SPARQL Open Data Portal Endpoint SPARQL Tester</h3>
+          <p>SODPEST is a small, dependency-light CLI tool that <strong>derives SPARQL endpoint candidates</strong> for Open Data portals and optionally <strong>verifies</strong> them via real SPARQL protocol checks.</p>
+        </article>
+
+        <article class="card">
+          <h3>SODDUT - Semantic Open Data Dataset Update Timeline</h3>
+          <p>SODDUT is an interactive timeline to check the corresponding creation and updating process of an Open Data dataset.</p>
+        </article>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <section>
-    <h2>Current Research</h2>
-    <div class="card">
-      <h3>SODREPO - Spatial Open Data Regions and Portals</h3>
-      <p>An interactive map-based tool linking Open Data portals to administrative boundaries across Europe. Introduced at ICEGOV 2025, SODREPO brings spatial context and metadata richness to the Open Data infrastructure landscape. Current demonstration is here: <a href="https://rambarz.github.io/">SODREPO</a></p>
-    </div>
-    <div class="card">
-      <h3>SODINA - Sparql for Open Data Introspection, Navigation and Access</h3>
-      <p>SODINA is a lightweight introspection layer for SPARQL endpoints, designed to support semantic data exploration by dynamically exposing available classes, properties, datatypes, and value samples. Inspired by GraphQL’s `__schema` functionality, SODINA lowers the entry barrier for users unfamiliar with the internal vocabulary of RDF-based Open Data portals.</p>
-    </div>
-    <div class="card">
-      <h3>SODMET (old SODRAM) - Semantic Open Data Metadata Extration Tools (old Specific Open Dataset Regional Analysis Metadata)</h3>
-      <p>This Node.js-based research tool analyzes the metadata quality of German municipal Open Data portals. Specifically, it evaluates the **regional assignability** of datasets depending on whether standardized metadata models like **DCAT-AP** and **GeoDCAT-AP** are used (typically via CKAN), best practice as a SPARQL endpoint, or non-standard formats (e.g. ArcGIS JSON).</p>
-    </div>
-    <div class="card">
-      <h3>SODBond - Semantic-Orchestration Derivation Bond between BPMN and RDF</h3>
-      <p>SODBond is a toolkit that bridges Camunda BPMN 2.0 process definitions and runtime instances with RDF knowledge graphs via an ontology-driven approach. It retrieves BPMN models and instance data from Camunda through the REST API and transforms them into semantically rich RDF/OWL representations based on a BPMN-based ontology.</p>
-    </div>
-    <div class="card">
-      <h3>SODPEST (SPARQL Open Data Portal Endpoint SPARQL Tester)</h3>
-      <p>SODPEST is a small, dependency-light CLI tool that derives SPARQL endpoint candidates for Open Data portals and optionally verifies them via real SPARQL protocol checks.</p>
-    </div>
-     <div class="card">
-      <h3>SODDUT (Semantic Open Data Dataset Update Timeline)</h3>
-      <p>SODDUT ist an interactive timeline to check the corresponding creation and updating process of an Open Data Dataset.</p>
-    </div>
-  </section>
+    <section id="planned">
+      <h2>✅ Planned Projects</h2>
+      <div class="grid-three">
+        <article class="card">
+          <h3>SODS</h3>
+          <p>Special Open Data Survey</p>
+          <p><strong>Status:</strong> planned</p>
+        </article>
+        <article class="card">
+          <h3>SODA</h3>
+          <p>Saxony Open Data Assembly</p>
+          <p><strong>Status:</strong> planned</p>
+        </article>
+        <article class="card">
+          <h3>SODPUB</h3>
+          <p>Standardized Open Data Publication &amp; Utilization Blueprint</p>
+          <p><strong>Status:</strong> planned</p>
+        </article>
+      </div>
+    </section>
 
-  <section>
-    <h2>Completed Projects</h2>
-    <ul>
-      <li>TBD</li>
-    </ul>
-  </section>
+    <section id="publications">
+      <h2>🧾 Publications</h2>
+      <ul class="publication-list">
+        <li>Hahn, F. (2025). <em>Ontology Driven Transformation of Camunda BPMN Instances into RDF Knowledge Graphs</em>. NFDI4KG 2025.</li>
+        <li>Hahn, F. (2025). <em>Geographical Provenance of Open Government Datasets: Evaluating Geospatial Metadata in Municipal Open Data Portals</em>. DCMI 2025.</li>
+        <li>Hahn, F. (2025). <em>Bridging gaps in the Open Data landscape: A step towards a global atlas</em>. ICEGOV 2025.</li>
+        <li>Hahn, F. (2025). <em>Towards an Standardized Dataset Publishing in Open Government Data Ecosystems</em>. ESWC 2025.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Planned Projects</h2>
-    <ul>
-      <li>SODS - Special Open Data Survey</li>
-      <li>SODA - Saxony Open Data Assembly /li>
-      <li>SODPUB - Standardized Open Data Publication & Utilization Blueprint</li>
-    </ul>
-  </section>
+    <section id="topics">
+      <h2>📚 Research Topics</h2>
+      <ul class="tag-list">
+        <li>Semantic Web &amp; Ontologies</li>
+        <li>Open Government Data</li>
+        <li>Geo-Web Applications</li>
+        <li>Metadata Enrichment &amp; Quality Assessment</li>
+        <li>FAIR Data Principles &amp; Data Ecosystems</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Publications</h2>
-   <ul>
-     <li>Hahn, F. (2025). 'Ontology Driven Transformation of Camunda BPMN Instances into RDF Knowledge Graphs' (NFDI4KG 2025)</li>
-     <li>Hahn, F. (2025). 'Geographical Provenance of Open Government Datasets: Evaluating Geospatial Metadata in Municipal Open Data Portals' (DCMI 2025)</li>
-      <li>Hahn, F. (2025). Bridging gaps in the Open Data landscape: A step towards a global atlas. (ICEGOV 2025)</li>
-      <li>Hahn, F. (2025). Towards an Standardized Dataset Publishing in Open Government Data Ecosystems(ESWC 2025)</li>
-    </ul>
-  </section>
+    <section id="affiliation">
+      <h2>🏫 Affiliation</h2>
+      <div class="meta-box">
+        <p>Faculty of Computer Science, Professorship Data Management, TU Chemnitz</p>
+        <p>Germany</p>
+      </div>
+    </section>
 
-  <section>
-    <h2>Research Topics</h2>
-    <ul>
-     
-      <li>Semantic Web & Ontologies</li>
-      <li>Open Government Data</li>
-      <li>Geo-Web Applications</li>
-      <li>Metadata Enrichment & Quality Assessment</li>
-      <li>FAIR Data Principles & Data Ecosystems</li>
-    </ul>
-  </section>
+    <section id="contact">
+      <h2>📬 Contact</h2>
+      <div class="contact-grid">
+        <article class="card">
+          <h3>Email</h3>
+          <p><a href="mailto:florian.hahn@informatik.tu-chemnitz.de">florian.hahn@informatik.tu-chemnitz.de</a></p>
+        </article>
+        <article class="card">
+          <h3>GitHub</h3>
+          <p><a href="https://github.com/SODIC-research" target="_blank" rel="noopener noreferrer">github.com/SODIC-research</a></p>
+        </article>
+        <article class="card">
+          <h3>GitHub Page</h3>
+          <p><a href="https://sodic-research.github.io" target="_blank" rel="noopener noreferrer">sodic-research.github.io</a></p>
+        </article>
+        <article class="card">
+          <h3>TU Chemnitz Page</h3>
+          <p><a href="https://www.tu-chemnitz.de/informatik/dm/forschung/sodic.php" target="_blank" rel="noopener noreferrer">SODIC at TU Chemnitz</a></p>
+        </article>
+      </div>
+    </section>
+  </main>
 
-  <div class="footer">
+  <footer>
+    <p>© <span id="year"></span> SODIC Research Group - TU Chemnitz. All rights reserved.</p>
+    <p>Since 02.2025</p>
+  </footer>
 
- <section>
-    <h2>Contact</h2>
-    <p>Department of Computer Science, Data Management TU Chemnitz</p>
-    <p>Email: <a href="mailto:florian.hahn@informatik.tu-chemnitz.de">
-      florian.hahn@informatik.tu-chemnitz.de
-    </a></p>
-    <p>GitHub Code: <a href="https://github.com/SODIC-research" target="_blank">SODIC</a></p>
-    <p><a href="https://sodic-research.github.io/" target="_blank">Public SODIC GitHub Site</a></p>
-    <p><a href="https://www.tu-chemnitz.de/informatik/dm/forschung/sodic.php" target="_blank">Public SODIC TUC Site</a></p>
-  </section>
-  <div>
-    © <script>document.write(new Date().getFullYear())</script> SODIC Research Group – TU Chemnitz. All rights reserved.
-  </div>
-  </div>
-
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
